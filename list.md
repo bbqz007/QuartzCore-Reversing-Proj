@@ -97,8 +97,10 @@ int CA::Layer::add_animation(CAAnimation* anima, __CFString const* key_path)
 void CA::Layer::set_animations(CA::Layer::Animation* anima)
 
 bool CA::Layer::collect_animations__(double arg1, double* arg2, CA::Layer::CollectAnimationsData* data)
+```
 
 # CA.misc.cpp
+```
 void CA::Layer::update_sublayers(CA::Transaction* transaction, CALayerArray* oldSublayers, CALayerArray* newSublayers)
 
 void CA::Layer::update_removed_sublayer(CA::Transaction* transaction, unsigned int visibleFlags)
