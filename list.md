@@ -14,7 +14,6 @@ void async_collect_callback(void*)
 
 # CA.Context.cpp
 ```
-
 CA::Context::~Context()
 
 void CA::Context::destroy()
@@ -79,8 +78,10 @@ void CA::Context::commit_deleted(unsigned long hkey, unsigned int id, void* unkn
 void CA::Context::commit_animation(CA::Layer* layer, CA::Render::Animation* anima, void* unknownCTX)
 
 void CA::Context::commit_command(Command command, unsigned long cmd_arg, void const* unknownCTX)
+```
 
 # CA.cpp
+```
 bool CA::Layer::layout_is_active(CA::Transaction* transaction, bool isActive)
 
 void CA::Layer::layout_and_display_if_needed(CA::Transaction* transaction)
