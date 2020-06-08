@@ -65,8 +65,10 @@ bool CA::Context::get_backdrop_layer_statistics(unsigned long flag, double* unkn
 bool CA::Context::synchronize(unsigned int flag1, int flag2)
 
 void CA::Context::set_objc_context(void const* ctx)
+```
 
 # CA.Context+commit.cpp
+```
 void CA::Context::commit_root(CA::Layer* layer, void* unknownCTX)
 
 double CA::Context::commit_layer_time(CA::Layer* layer, double givenTime, void* unknownCTX)
