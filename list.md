@@ -1,4 +1,5 @@
 # CA.backing.cpp
+```
 void CABackingStoreCollect_(double curMediaTime, bool flag)
 
 void CABackingStoreCollect(double curMediaTime)
@@ -8,8 +9,10 @@ void backing_store_callback(double, void*)
 CA::call_at_time(fn_backing_store_callback backing_store_callback, double curMediaTime, void* unknown)
 
 void async_collect_callback(void*)
+```
 
 # CA.Context.cpp
+```
 CA::Context::~Context()
 
 void CA::Context::destroy()
@@ -61,8 +64,10 @@ bool CA::Context::get_backdrop_layer_statistics(unsigned long flag, double* unkn
 bool CA::Context::synchronize(unsigned int flag1, int flag2)
 
 void CA::Context::set_objc_context(void const* ctx)
+```
 
 # CA.Context+commit.cpp
+```
 void CA::Context::commit_root(CA::Layer* layer, void* unknownCTX)
 
 double CA::Context::commit_layer_time(CA::Layer* layer, double givenTime, void* unknownCTX)
@@ -74,8 +79,10 @@ void CA::Context::commit_deleted(unsigned long hkey, unsigned int id, void* unkn
 void CA::Context::commit_animation(CA::Layer* layer, CA::Render::Animation* anima, void* unknownCTX)
 
 void CA::Context::commit_command(Command command, unsigned long cmd_arg, void const* unknownCTX)
+```
 
 # CA.cpp
+```
 bool CA::Layer::layout_is_active(CA::Transaction* transaction, bool isActive)
 
 void CA::Layer::layout_and_display_if_needed(CA::Transaction* transaction)
@@ -89,8 +96,10 @@ int CA::Layer::add_animation(CAAnimation* anima, __CFString const* key_path)
 void CA::Layer::set_animations(CA::Layer::Animation* anima)
 
 bool CA::Layer::collect_animations__(double arg1, double* arg2, CA::Layer::CollectAnimationsData* data)
+```
 
 # CA.misc.cpp
+```
 void CA::Layer::update_sublayers(CA::Transaction* transaction, CALayerArray* oldSublayers, CALayerArray* newSublayers)
 
 void CA::Layer::update_removed_sublayer(CA::Transaction* transaction, unsigned int visibleFlags)
@@ -232,11 +241,15 @@ void CA::Layer::collect_layers_(CollectLayersData* data)
 CA::Layer::collect_non_visible_animations(CA::Transaction* transaction)
 
 void CA::Layer::collect_non_visible_callback(void const* elem, void* context)
+```
 
 # CA.property.cpp
+```
 void CA::Layer::property_did_change(CA::Transaction* transaction, unsigned int flag)
+```
 
 # CA.Render.Encoder.cpp
+```
 CA::Render::Encoder::Encoder(x_heap_struct* heap, unsigned int flag1, void* something, unsigned int flag2, double flt)
 
 void CA::Render::Encoder::encode_port(unsigned int port1, unsigned int port2, bool bWhat)
@@ -254,7 +267,7 @@ void CA::Render::Encoder::encode_data_async(void const* dataObject, unsigned lon
 void CA::Render::Encoder::receive_reply(unsigned int reply_port)
 
 void CA::Render::Encoder::send_message(unsigned int send_port, unsigned int reply_port)
-
+```
 
 
 
