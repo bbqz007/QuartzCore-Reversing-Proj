@@ -1,4 +1,4 @@
-# CA.backing.cpp
+																																																																																																																																																																																																																																																						# CA.backing.cpp
 void CABackingStoreCollect_(double curMediaTime, bool flag)
 
 void CABackingStoreCollect(double curMediaTime)
@@ -255,13 +255,228 @@ void CA::Render::Encoder::receive_reply(unsigned int reply_port)
 
 void CA::Render::Encoder::send_message(unsigned int send_port, unsigned int reply_port)
 
+# CA.Render.Object.cpp
+```
+CA::Render::Object::Object(CA::Render::Decoder* decoder, unsigned int flag)
+
+bool CA::Render::Object::caches_encoding()
+
+bool CA::Render::Object::can_mix_with_object(CA::Render::Object*)
+
+CA::Render::Object* CA::Render::Object::external_ref() const
+
+bool CA::Render::Object::external_unref() const
+
+void CA::Render::Object::finalize()
+
+uintptr_t CA::Render::Object::ogl_image_key() const
+
+CA::Render::Object* CA::Render::Object::ref() const
+
+int64_t CA::Render::Object::refcount() const
+
+int CA::Render::Object::show(unsigned int flag1, unsigned int flag2) const
+
+```
+
+# CA.Render.Shmem.cpp
+```
+void* CA::Render::Shmem::copy_image(CGColorSpace* colorSpace)
+
+CGImage* CA::Render::Shmem::copy_cgimage(CGColorSpace* colorSpace)
+
+bool CA::Render::Shmem::set_volatile(bool bVolatile, int flag)
+
+CA::Render::Shmem* CA::Render::Shmem::decode(CA::Render::Decoder* decoder)
+
+CA::Render::Shmem* CA::Render::Shmem::encode(CA::Render::Encoder* encoder) const
+
+bool CA::Render::Shmem::is_purged() const
+
+bool CA::Render::Shmem::is_volatile() const
+
+CA::Render::ShmemBitmap CA::Render::Shmem::new_bitmap(unsigned int arg1, unsigned int width, unsigned int height, unsigned int scale)
+
+CA::Render::Shmem* CA::Render::Shmem::new_shmem(unsigned long size)
+
+mach_port CA::Render::Shmem::port() const
+
+```
+
+# CA.Render.ShmemBitmap.cpp
+```
+void CA::Render::ShmemBitmap::copy_pixels(CA::Render::ShmemBitmap const* other, CGSRegionObject* region)
+
+
+```
+
+# CA.Transaction.cpp
+```
+void CA::Transaction::unlock()
+
+void CA::Transaction::set_value(unsigned int hkey, _CAValueType valueType, void const* value)
+
+void CA::Transaction::set_fence(unsigned int port1, unsigned int port2, block_pointer Block)
+
+void CA::Transaction::set_continuation(block_pointer Block)
+
+void CA::Transaction::run_deferred_visibility_layer_calls()
+
+void CA::Transaction::run_commit_handlers(CATransactionPhase phase)
+
+void CA::Transaction::reset_animators()
+
+void CA::Transaction::remove_root(CA::Layer* root)
+
+void CA::Transaction::release_thread(void* thread)
+
+void CA::Transaction::release_object(void const* obj)
+
+void CA::Transaction::push_animator(block_pointer Block)
+
+void CA::Transaction::push()
+
+void CA::Transaction::pop_animator()
+
+void CA::Transaction::pop()
+
+void CA::Transaction::lock()
+
+void CA::Transaction::init()
+
+bool CA::Transaction::get_value(unsigned int hkey, _CAValueType valueType, void* value)
+
+bool CA::Transaction::get_animator(block_pointer& Block) const
+
+void CA::Transaction::free_command_list(Command* command)
+
+void CA::Transaction::foreach_root(void(*commit_root)(CA::Layer*, void*), void* context)
+
+void CA::Transaction::foreach_deleted_id(void(*commit_deleted)(unsigned long, unsigned int, void*), void* context)
+
+void CA::Transaction::foreach_command(unsigned int flag, void(*commit_command)(int, unsigned long, void const*, void*), void* context)
+
+void CA::Transaction::flush_transaction()
+
+void CA::Transaction::flush()
+
+unsigned int CA::Transaction::current_state()
+
+void CA::Transaction::commit_transaction()
+
+void CA::Transaction::commit()
+
+void CA::Transaction::cf_release(void const* cf_obj)
+
+void CA::Transaction::begin_transaction()
+
+void CA::Transaction::assert_inactive()
+
+void CA::Transaction::add_root(CA::Layer* rootLayer)
+
+void CA::Transaction::add_deleted_id(unsigned long hobj, unsigned int id)
+
+void CA::Transaction::add_deferred_visibility_layer(CA::Layer* deferredLayer)
+
+void CA::Transaction::add_commit_handler(block_pointer Block, CATransactionPhase phase)
+
+CA::Transaction* CA::Transaction::ensure()
+
+CA::Transaction* CA::Transaction::ensure_compat()
+
+void CA::Transaction::ensure_implicit()
+
+CA::Transaction* CA::Transaction::create()
+
+void CA::Transaction::add_command(int arg1, unsigned int arg2, unsigned long arg3, void const* arg4)
 
 
 
+```
+
+# CA+display.cpp
+```
+bool CA::Layer::display_if_needed(CA::Transaction* transaction)
+
+void CA::Layer::display()
+
+void ___ZN2CA5Layer8display_Ev_block_invoke(_NSConcreteBlock* Block)
+
+```
+
+# CA+setter.cpp
+```
+void CA::Layer::set_visible(unsigned int visibleFlags)
+
+void CA::Layer::set_position(CA::Vec2<double> const& position, bool bAnima)
+
+void CA::Layer::set_next_animation_time(CA::Transaction* transaction, double nextTime1, double nextTime2)
+
+void CA::Layer::set_needs_layout()
+
+void CA::Layer::set_needs_display_in_rect(CGRect const& rect)
+
+uint32_t* CA::Layer::thread_flags_(CA::Transaction* transaction)
+
+void CA::Layer::set_model_layer(CA::Transaction* transaction, CA::Layer* modelLayer)
+
+void CA::Layer::set_mask(CALayer* maskLayer)
+
+void CA::Layer::set_bit_int(unsigned int flag1, unsigned int flag2, unsigned int flag3, unsigned int flag4, unsigned int flag5)
+
+void CA::Layer::set_bit(unsigned int flag1, unsigned int flag2, unsigned int flag3, bool bWhat, void(CA::Layer::*callback)(CA::Transaction*))
+
+void CA::Layer::set_animations(Animation* anima)
+
+void CA::Layer::set_commit_needed(CA::Transaction* transaction, unsigned int flag)
+
+void CA::Layer::set_bounds(CA::Rect const& rect, bool anim)
+
+void CA::Layer::set_delegate(objc_object* delegate)
+
+void CA::Layer::set_sublayers(__CFArray const* sublayers)
+
+void CA::Layer::setter(unsigned int hkey, _CAValueType type, void const* value)
+
+```
+
+# CABackingStoreUpdate_.cpp
+```
+void CABackingStoreUpdate_(CABackingStore* content, unsigned int width, unsigned int height, unsigned int flag1, unsigned int flag2,  void(*backing_callback)(CGContext*, void*), CA::Layer* layer, CA::GenericContext* context)
+
+```
+
+# transaction.commit_tr~.cpp
+```
+void CA::Context::commit_transaction(CA::Transaction* transaction)
+```
+
+# UIKit.UIView.cpp
+```
++[UIView(Animation) beginAnimations:context:]
+
++[UIViewAnimationState pushViewAnimationState:context:]
+
++[UIView(UIViewAnimationWithBlocks) _setupAnimationWithDuration:delay:view:options:animations:start:completion:]
+
+```
+
+# UIView+Rendering.cpp
+```
++[UIView(Rendering) flush]
+
++[UIView(Internal) _transitionFromView:toView:duration:options:animations:completion:]
+
++[UIView(UIViewAnimationWithBlocks) _setupAnimationWithDuration:delay:view:options:factory:animations:start:animationStateGenerator:completion:]
 
 
+```
 
+# x_log.cpp
+```
+void x_logv(int handle, const char* fmt, va_list_t* va_list)
 
+```
 
 
 
